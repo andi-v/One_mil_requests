@@ -1,0 +1,8 @@
+#requestButton {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#requestResult {
+    display: inline-block;
+}
