@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 let start, end, duration,
-    reqNumber = 1;
+    reqNumber = 0;
 
 http.createServer( (req, res) => {
     const projectPath = path.join(__dirname, '..');
@@ -34,12 +34,12 @@ http.createServer( (req, res) => {
 
     if (req.method == 'GET' && (req.url.indexOf("server.js") != -1)) {
         // initialize start time only when 1st req was made
+        reqNumber++;
         if (reqNumber == 1) {
             start = new Date().getTime();
         }
-        reqNumber++;
-
-        // ####################### ASYNC 4.0 #######################
+        
+        // ####################### ASYNC 4.0 / 5.0 #######################
         // fs.readFile(projectPath + "\\frontend\\test.txt", (err, data) => {
         //     end = new Date().getTime();
         //     duration = (end - start)/1000;
@@ -48,7 +48,7 @@ http.createServer( (req, res) => {
         //     res.end();
         // });
 
-        // ####################### SYNC 4.5 #######################
+        // ####################### SYNC 4.5 / 6.7 #######################
         fs.readFileSync(projectPath + "\\frontend\\test.txt");
         end = new Date().getTime();
         duration = (end - start)/1000;

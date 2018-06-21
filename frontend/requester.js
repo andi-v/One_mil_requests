@@ -4,7 +4,7 @@ function makeRequests() {
     for (let i=1; i <= 5000; i++) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = () => {
-            if (xhttp.readyState == 4 && xhttp.status == 200 && i == 1000) {
+            if (xhttp.readyState == 4 && xhttp.status == 200 && i == 5000) {
                 $("#requestResult").html(xhttp.responseText);
             }
         }
